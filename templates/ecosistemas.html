@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App de informe sobre Criptomonedas & Blockchain</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+
+    <!-- CSS only Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Tema personalizado de bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <!-- MENU DE NAVEGACION -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <img src="../static/img/cripto.png" width="40">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/criptomonedas">Criptomonedas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exchanges">Exchanges</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ecosistemas">Ecosistemas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="display-2 text-center mx-5 my-5">ECOSISTEMAS</h1>
+    <hr style="height: 8px; background-color:  #495875; text-align: right; width: 75%;">
+    <br><br><br>
+
+
+    <div class="container text-center">
+        <div class="row justify-content-between">
+            <div class="col-5 my-5">
+                <table class="table table-hover">
+                    <caption>Ecosistemas con mas tokenización</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Ecosistema</th>
+                        <th scope="col">Numero de tokens</th>
+                        <th scope="col">Capitalizacion Mercado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data_rows %}
+                        <tr class="table-primary">
+                            {% for col in row %}
+                            <td>{{ col }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-5">
+              <h3>¿Qué es un ecosistema crypto?</h3>
+                <p class="text-justify">Además de estos Exchanges y herramientas para la creación de tokens, otro elemento importante del ecosistema son las aplicaciones en las que las empresas, los desarrolladores y las comunidades pueden construir para crear sus propios servicios y proyectos. Por ejemplo, el libro blanco de Ethereum analiza tres tipos principales de aplicaciones: las aplicaciones financieras, las denominadas aplicaciones semi-financieras y las aplicaciones no financieras. La primera categoría se centra en la forma en que se administra y utiliza el dinero, e incluye monedas secundarias, derivados e incluso instrumentos como los contratos de empleo. La segunda categoría incluye aplicaciones con un elemento financiero, pero que van más allá de esto, como recompensas auto ejecutables para ciertas tareas. La categoría final podría incluir aplicaciones tales como mecanismos de votación y gobernanza.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>>
